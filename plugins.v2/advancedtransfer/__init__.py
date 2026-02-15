@@ -149,8 +149,139 @@ class AdvancedTransfer(_PluginBase):
             }
         ]
 
-    def get_page(self) -> Optional[List[dict]]:
-        return None
+    def get_page(self) -> List[dict]:
+        """
+        插件详情页面
+        """
+        return [
+            {
+                "component": "VRow",
+                "content": [
+                    {
+                        "component": "VCol",
+                        "props": {"cols": 12},
+                        "content": [
+                            {
+                                "component": "VAlert",
+                                "props": {
+                                    "type": "info",
+                                    "variant": "tonal",
+                                    "text": "请在插件配置中设置源下载器、目标下载器和执行周期。",
+                                },
+                            }
+                        ],
+                    }
+                ],
+            },
+            {
+                "component": "VRow",
+                "content": [
+                    {
+                        "component": "VCol",
+                        "props": {"cols": 12, "md": 6},
+                        "content": [
+                            {
+                                "component": "VCard",
+                                "props": {"variant": "tonal"},
+                                "content": [
+                                    {
+                                        "component": "VCardTitle",
+                                        "props": {"text": "核心功能"},
+                                    },
+                                    {
+                                        "component": "VCardText",
+                                        "content": [
+                                            {
+                                                "component": "VList",
+                                                "props": {"density": "compact"},
+                                                "content": [
+                                                    {
+                                                        "component": "VListItem",
+                                                        "props": {
+                                                            "title": "QB/TR 跨客户端转移",
+                                                            "subtitle": "支持 qBittorrent ↔ Transmission 双向转移",
+                                                        },
+                                                    },
+                                                    {
+                                                        "component": "VListItem",
+                                                        "props": {
+                                                            "title": "Partial Download Sync",
+                                                            "subtitle": "同步源端文件选择状态到目标端",
+                                                        },
+                                                    },
+                                                    {
+                                                        "component": "VListItem",
+                                                        "props": {
+                                                            "title": "TR Tracker 双回退",
+                                                            "subtitle": "兼容 Transmission 3.x/4.0+ 多版本",
+                                                        },
+                                                    },
+                                                    {
+                                                        "component": "VListItem",
+                                                        "props": {
+                                                            "title": "Fire-and-Forget",
+                                                            "subtitle": "自动校验做种，无需轮询等待",
+                                                        },
+                                                    },
+                                                ],
+                                            }
+                                        ],
+                                    },
+                                ],
+                            }
+                        ],
+                    },
+                    {
+                        "component": "VCol",
+                        "props": {"cols": 12, "md": 6},
+                        "content": [
+                            {
+                                "component": "VCard",
+                                "props": {"variant": "tonal"},
+                                "content": [
+                                    {
+                                        "component": "VCardTitle",
+                                        "props": {"text": "三种场景"},
+                                    },
+                                    {
+                                        "component": "VCardText",
+                                        "content": [
+                                            {
+                                                "component": "VList",
+                                                "props": {"density": "compact"},
+                                                "content": [
+                                                    {
+                                                        "component": "VListItem",
+                                                        "props": {
+                                                            "title": "场景 A - 完整转移",
+                                                            "subtitle": "目标无该种子，添加并同步文件选择",
+                                                        },
+                                                    },
+                                                    {
+                                                        "component": "VListItem",
+                                                        "props": {
+                                                            "title": "场景 B - 辅种合并",
+                                                            "subtitle": "目标已有文件但缺少 Tracker，智能注入",
+                                                        },
+                                                    },
+                                                    {
+                                                        "component": "VListItem",
+                                                        "props": {
+                                                            "title": "场景 C - 跳过重复",
+                                                            "subtitle": "完全相同的种子和 Tracker 直接跳过",
+                                                        },
+                                                    },
+                                                ],
+                                            }
+                                        ],
+                                    },
+                                ],
+                            }
+                        ],
+                    },
+                ],
+            },
+        ]
 
     def stop_service(self):
         """停止插件服务"""
