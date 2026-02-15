@@ -1,5 +1,5 @@
 """
-AdvancedTransfer - 高级种子转移插件 v3.0
+AdvancedTransfer - 高级种子转移插件 v1.0
 
 架构特性:
   1. Cron-Only 调度 — 通过 cron 表达式触发，每次执行一轮完整扫描后退出。
