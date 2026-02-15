@@ -45,6 +45,9 @@ class AdvancedTransfer(_PluginBase):
     # ==================== 插件元信息 ====================
     plugin_name = "高级种子转移"
     plugin_desc = "自动将做种任务从源下载器转移到目标下载器，支持PT辅种智能合并（Cron调度）"
+    plugin_icon = "advancedtransfer.png"
+    plugin_version = "1.0"
+    plugin_author = "zzstar101"
     plugin_order = 18
 
     # ==================== 配置属性 ====================
